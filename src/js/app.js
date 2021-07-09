@@ -18,7 +18,8 @@ fetch(endPointGet)
 //GET
 const downloadData2 = {};
 
-const getData = () => {
+const getData = (event) => {
+  event.preventDefault();
   fetch(endPointPost) 
     .then(function(response) {
       const data2 = response.json();
@@ -29,9 +30,9 @@ const getData = () => {
       downloadData2.data2 = data2;
       console.log(downloadData2);
     });
-}
+};
 
-const getButton = document.querySelector('.get-btn');
+const getButton = document.querySelector('.button-register');
 getButton.addEventListener('click', getData);
 
 //POST
@@ -50,7 +51,10 @@ const option = {
   body: JSON.stringify(payload),
 };
 
-const postData = () => fetch(endPointPost, option);
+const postData = (event) => {
+  event.preventDefault();
+  fetch(endPointPost, option)
+};
 
-const postButton = document.querySelector('.post-btn');
+const postButton = document.querySelector('.button-register');
 postButton.addEventListener('click', postData);

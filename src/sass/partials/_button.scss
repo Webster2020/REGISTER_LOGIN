@@ -1,0 +1,19 @@
+.button-wrapper {
+  position: relative;
+  display: block;
+  margin: 5px auto;
+  width: 90%;
+  //border: 1px solid red;
+  transition: 0.5s;
+  .button-register {
+    display: block;
+    margin: 5px auto;
+    width: 90%;
+    padding: 5px;
+    font-family: $button-font;
+    font-size: 22px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
