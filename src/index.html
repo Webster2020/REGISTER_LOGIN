@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@500&display=swap" rel="stylesheet">
+    <!--FONT AWESOME ///NEW !!!-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <!--STYLESHEET-->
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <title>Document</title>
@@ -16,18 +18,54 @@
 <body>
   <main>
     <article>
-      <section>
-        <div class='form-wrapper'>
+      <section class='register'>
+
+        <div class='form-wrapper form-register active'>
           <form>
             <div class='input-wrapper'>
-              <input id='inp-txt' class='input-text' placeholder='name'></input>
-              <label for='inp-txt' class='input-text-label'>name</label>
+              <div class="login-icon icon-right">
+                <i class="fas fa-sign-in-alt"></i>
+              </div>
+              <input id='inp-name' class='input-text' type='text' placeholder='name'></input>
+              <label for='inp-name' class='input-text-label'>name</label>
+            </div>
+            <div class='input-wrapper'>
+              <input id='inp-email' class='input-text' type='email' placeholder='e-mail'></input>
+              <label for='inp-emial' class='input-text-label'>e-mail</label>
+            </div>
+            <div class='input-wrapper'>
+              <input id='inp-password' class='input-text' type='password' placeholder='password'></input>
+              <label for='inp-password' class='input-text-label'>password</label>
             </div>
             <div class='button-wrapper'>
-              <button class='button-register'>REGISTER</button>
+              <button class='button button-register'>REGISTER</button>
             </div>
           </form>
         </div>
+
+        <div class='form-wrapper form-login'>
+          <form>
+            <div class='input-wrapper'>
+              <div class="login-icon icon-left">
+                <i class="fas fa-sign-in-alt"></i>
+              </div>
+              <input id='inp-name' class='input-text' type='text' placeholder='name'></input>
+              <label for='inp-name' class='input-text-label'>name</label>
+            </div>
+            <div class='input-wrapper'>
+              <input id='inp-email' class='input-text' type='email' placeholder='e-mail'></input>
+              <label for='inp-emial' class='input-text-label'>e-mail</label>
+            </div>
+            <div class='input-wrapper'>
+              <input id='inp-password' class='input-text' type='password' placeholder='password'></input>
+              <label for='inp-password' class='input-text-label'>password</label>
+            </div>
+            <div class='button-wrapper'>
+              <button class='button button-login'>LOGIN</button>
+            </div>
+          </form>
+        </div>
+
       </section>
     </article>
   </main>

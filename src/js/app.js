@@ -53,8 +53,26 @@ const option = {
 
 const postData = (event) => {
   event.preventDefault();
-  fetch(endPointPost, option)
+  fetch(endPointPost, option);
 };
 
 const postButton = document.querySelector('.button-register');
 postButton.addEventListener('click', postData);
+
+//NEW
+const inputName = document.querySelector('.input-text');
+inputName.addEventListener('input', (e) => {
+  console.log(e.target.value);
+  console.log(inputName.validity.tooShort);
+});
+
+const switchButtons = document.querySelectorAll('.login-icon i');
+const formRegister = document.querySelector('.form-register');
+const formLogin = document.querySelector('.form-login');
+for(let switchButton of switchButtons) {
+  switchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    formRegister.classList.toggle('active');
+    formLogin.classList.toggle('active');
+  });
+}

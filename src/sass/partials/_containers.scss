@@ -1,5 +1,6 @@
 body {
-  background: black;
+  padding: 10px;
+  background: $color-black;
   font-family: $main-font;
 }
 
@@ -14,4 +15,6 @@ main {
 
 .form-wrapper {
   position: relative;
+  display: none;
+  transition: 0.5s;
 }
