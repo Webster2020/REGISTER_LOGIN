@@ -64,7 +64,7 @@ form {
       display: block;
       margin: 10px auto;
       padding: 5px 0;
-      width: 90%;
+      width: 95%;
       top: 0;
       font-size: 16px;
       font-family: $main-font;
@@ -77,12 +77,11 @@ form {
       margin: 5px auto;
       padding: 5px 0;
       height: 30px;
-      width: 90%;
+      width: 95%;
       top: -30px;
-      //font-size: 20px;
       text-align: center;
       border-bottom: 3px solid transparent;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 7px 7px;
       background-color: $color-white;
       opacity: 0;
       transition: 0.5s;

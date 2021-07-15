@@ -18,23 +18,23 @@
 <body>
   <main>
     <article>
-      <section class='register'>
 
+      <section class='register'>
         <div class='form-wrapper form-register active'>
           <form>
             <div class='input-wrapper'>
               <div class="login-icon icon-right">
                 <i class="fas fa-sign-in-alt"></i>
               </div>
-              <input id='inp-name' class='input-text' type='text' placeholder='name'></input>
+              <input id='inp-name' class='input-text input-name' type='text' placeholder='name'></input>
               <label for='inp-name' class='input-text-label'>name</label>
             </div>
             <div class='input-wrapper'>
-              <input id='inp-email' class='input-text' type='email' placeholder='e-mail'></input>
+              <input id='inp-email' class='input-text input-email' type='email' placeholder='e-mail'></input>
               <label for='inp-emial' class='input-text-label'>e-mail</label>
             </div>
             <div class='input-wrapper'>
-              <input id='inp-password' class='input-text' type='password' placeholder='password'></input>
+              <input id='inp-password' class='input-text input-password' type='password' placeholder='password'></input>
               <label for='inp-password' class='input-text-label'>password</label>
             </div>
             <div class='button-wrapper'>
@@ -65,10 +65,45 @@
             </div>
           </form>
         </div>
-
       </section>
+
+      <section>
+        <div class="overlay">
+          <div class="modal" id="registration-confirm">
+            
+            <div>
+              <div class="modal-button-x close-modal">x</div>
+            </div>
+            
+            <div class="modal-wrapper">
+              <div class="modal-title">
+                <h2 class="modal-title-text"></h2>
+                <script id="template-modal-reg-title" type="text/x-handlebars-template">
+                  {{ greetingMessage }}
+                </script>
+              </div>
+              <div class="modal-info">              
+                <h4 class="modal-info-text"></h4>
+                <script id="template-modal-reg-info" type="text/x-handlebars-template">
+                  {{ notification }}
+                </script>
+              </div>
+            </div>
+
+            <div class="modal-button-wrapper">
+              <div class="modal-button-close close-modal">Okay</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </article>
   </main>
-  <script src='./js/app.js'></script>
+
+  <!-- HANDLEBARS LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src='./js/app.js' type='module'></script>
+
 </body>
 </html>
