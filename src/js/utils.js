@@ -21,4 +21,16 @@ export const utils = {
   inputClear: (input) => {
     input.value = '';
   },
+  setSwitchLogReg: () => {
+    const switchLogRegButtons = domElement.switchLogRegButtons;
+    const regForm = domElement.register.wrapper;
+    const logForm = domElement.login.wrapper;
+    for(const button of switchLogRegButtons) {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        regForm.classList.toggle(classNames.formWrappers.active);
+        logForm.classList.toggle(classNames.formWrappers.active);
+      });
+    }
+  },
 };
