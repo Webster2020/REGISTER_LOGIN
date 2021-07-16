@@ -6,6 +6,8 @@ export const select = {
     input: {
       wrapper: '.form-register .input-wrapper',
       name: '.form-register .input-name',
+      email: '.form-register .input-email',
+      password: '.form-register .input-password',
     },
     button: '.button-register',
   },
@@ -15,6 +17,8 @@ export const select = {
     input: {
       wrapper: '.form-login .input-wrapper',
       name: '.form-login .input-name',
+      email: '.form-login .input-email',
+      password: '.form-login .input-password',
     },
     button: '.button-login',
   },
@@ -54,6 +58,8 @@ export const domElement = {
     wrapper: document.querySelector(select.register.wrapper),
     input: {
       name: document.querySelector(select.register.input.name),
+      email: document.querySelector(select.register.input.email),
+      password: document.querySelector(select.register.input.password),
     },
     button: document.querySelector(select.register.button),
   },
@@ -61,6 +67,8 @@ export const domElement = {
     wrapper: document.querySelector(select.login.wrapper),
     input: {
       name: document.querySelector(select.login.input.name),
+      email: document.querySelector(select.login.input.email),
+      password: document.querySelector(select.login.input.password),
     },
     button: document.querySelector(select.login.button),
   },

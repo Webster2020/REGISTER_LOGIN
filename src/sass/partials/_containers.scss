@@ -1,11 +1,10 @@
 body {
-  padding: 10px;
   background: $color-black;
   font-family: $main-font;
 }
 
 main {
-  height: 95vh;
+  height: calc(100vh - 16px);
   position: relative;
   background-image: url(https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
   background-position: center center;
