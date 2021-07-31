@@ -30,9 +30,16 @@ export const select = {
       titleText: '#registration-confirm .modal-title-text',
       infoText: '#registration-confirm .modal-info-text',
     },
+    regReject: {
+      id: '#registration-reject',
+      titleText: '#registration-reject .modal-title-text',
+      infoText: '#registration-reject .modal-info-text',
+    },
     regHandlebars: {
       title: '#template-modal-reg-title',
       info: '#template-modal-reg-info',
+      titleReject: '#template-modal-reg-reject-title',
+      infoReject: '#template-modal-reg-reject-info',
     },
     closeButtons: '.overlay .close-modal'
   },
@@ -78,10 +85,16 @@ export const domElement = {
     regHandlebars: {
       title: document.querySelector(select.modal.regHandlebars.title).innerHTML,
       info: document.querySelector(select.modal.regHandlebars.info).innerHTML,
+      titleReject: document.querySelector(select.modal.regHandlebars.titleReject).innerHTML,
+      infoReject: document.querySelector(select.modal.regHandlebars.infoReject).innerHTML,
     },
     regConfirm: {
       titleText: document.querySelector(select.modal.regConfirm.titleText),
       infoText: document.querySelector(select.modal.regConfirm.infoText),
+    },
+    regReject: {
+      titleText: document.querySelector(select.modal.regReject.titleText),
+      infoText: document.querySelector(select.modal.regReject.infoText),
     },
   },
   modalsAll: document.querySelectorAll(select.modalsAll), 

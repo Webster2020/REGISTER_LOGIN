@@ -1,42 +1,122 @@
 import {utils} from './utils.js';
+import {genModRegInfo, genModRegTitle, genModRegRejectTitle, genModRegRejectInfo} from './genTemp.js';
+import {select} from './settings.js';
 
 export const postRegData = (name, email, password) => {
   const regUrl = '//localhost:3131/users';
-  const regPayload = {
-    [name.value]: {
-      id: 1,
-      name: name.value,
-      email: email.value,
-      password: password.value
-    }
-  };
-  const regOption = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(regPayload),
-  };
-  const fetchInputData = (name, email, password) => {
-    fetch(regUrl, regOption)
-      .then(function(response){
+  let userExist = 0;
+
+  const checkData = () => {
+    fetch(regUrl) 
+      .then(function(response) {
         return response.json();
       })
-      .then(function(parsedResponse){
+      .then(function(parsedResponse) {
+        parsedResponse.forEach(el => {
+          el.name === name.value && userExist++;
+        });
+      })
+      .then(function() {
+        if (userExist < 1) {
+          const regPayload = {
+            name: name.value,
+            email: email.value,
+            password: password.value
+          };
+          const regOption = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(regPayload),
+          };
+          const fetchInputData = (name, email, password) => {
+            fetch(regUrl, regOption)
+              .then(function(response){
+                return response.json();
+              })
+              .then(function(parsedResponse){
+                console.log('parsedResponse', parsedResponse);
+                utils.inputClear(name);
+                utils.inputClear(email);
+                utils.inputClear(password); 
+              }); 
+          };   
+          console.log('CONFIRM: New user added!');
+          fetchInputData(name, email, password);
+
+          utils.openModal(select.modal.regConfirm.id);
+          genModRegTitle(name);
+          genModRegInfo(name);
+
+        } else {
+          console.log('REJECT: User exist!');
+
+          utils.openModal(select.modal.regReject.id);
+          genModRegRejectTitle(name);
+          genModRegRejectInfo(name);
+        }
+      });
+  };
+  checkData();
+
+  // const regPayload = {
+  //   name: name.value,
+  //   email: email.value,
+  //   password: password.value
+  // };
+  // const regOption = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(regPayload),
+  // };
+  // const fetchInputData = (name, email, password) => {
+  //   fetch(regUrl, regOption)
+  //     .then(function(response){
+  //       return response.json();
+  //     })
+  //     .then(function(parsedResponse){
+  //       console.log('parsedResponse', parsedResponse);
+  //       utils.inputClear(name);
+  //       utils.inputClear(email);
+  //       utils.inputClear(password); 
+  //     }); 
+  // };   
+  // fetchInputData(name, email, password);
+
+};
+
+// IN PROGRESS...
+export const getLogData = (name, password) => {
+  console.log(name.value);
+  console.log(password.value);
+
+  const logUrl = '//localhost:3131/users';
+
+  const getData = () => {
+    fetch(logUrl) 
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(parsedResponse) {
         console.log('parsedResponse', parsedResponse);
+        parsedResponse.forEach(el => {
+          console.log(el);
+          el.name === name.value && el.password === password.value ? console.log('Login confirm!') : console.log('Wrong name or password!');
+        });
+      })
+      .then(function() {
         utils.inputClear(name);
-        utils.inputClear(email);
-        utils.inputClear(password); 
-      }); 
-  };   
-  fetchInputData(name, email, password);
+        utils.inputClear(password);
+      });
+  };
+  getData();
 };
 
-// TODO
-export const getLogData = (todo) => {
-  console.log(todo);
-};
 
+// >>>> TO REMOVE AT THE END OF TYPING THIS APP !!!
 // {
 //   // POST DATA FROM REGISTRATION
 //   const regUrl = '//localhost:3131/users';

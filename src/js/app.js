@@ -1,33 +1,39 @@
 'use strict';
 
-import {select, domElement} from './settings.js';
+import {domElement} from './settings.js';
 import {utils} from './utils.js';
-import {postRegData} from './fetchData.js';
-import {genModRegInfo, genModRegTitle} from './genTemp.js';
+import {postRegData, getLogData} from './fetchData.js';
 import {setCloseModalWays} from './modal.js';
 
+// >> REGISTRATION <<
 // INPUTS
 const regInpName = domElement.register.input.name;
 const regInpEmail = domElement.register.input.email;
 const regInpPassword = domElement.register.input.password;
-// REGISTRATION BUTTON 
+// BUTTON 
 const regButton = domElement.register.button;
+
+// >> LOGIN <<
+// INPUTS
+const logInpName = domElement.login.input.name;
+const logInpPassword = domElement.login.input.password;
+// LOGIN BUTTON
+const logButton = domElement.login.button;
 
 // SET ACTIONS
 utils.setSwitchLogReg();
 setCloseModalWays();
 
-// EVENT REGISTRATION
+// REGISTRATION
 regButton.addEventListener('click', (e) => {
   e.preventDefault();
-
   postRegData(regInpName, regInpEmail, regInpPassword);
+});
 
-  utils.openModal(select.modal.regConfirm.id);
-
-  genModRegTitle(regInpName);
-
-  genModRegInfo(regInpName);
+// LOGIN
+logButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  getLogData(logInpName, logInpPassword);
 });
 
 // regInpName.addEventListener('input', (e) => {

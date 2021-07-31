@@ -18,3 +18,21 @@ export const genModRegInfo = (input) => {
   const targetModalRegInfo = domElement.modal.regConfirm.infoText;
   utils.addTextToTemp(tempModalRegInfo, dataModalRegInfo, targetModalRegInfo);
 };
+
+export const genModRegRejectTitle = (input) => {
+  const tempModalRegTitle = domElement.modal.regHandlebars.titleReject;
+  const dataModalRegTitle = {
+    rejectMessage: (input.value != '' ? `Sorry, user '${input.value}' already exit !` : 'Hello Stranger. Put correct name please!'),
+  };
+  const targetModalRegTitle = domElement.modal.regReject.titleText;
+  utils.addTextToTemp(tempModalRegTitle, dataModalRegTitle, targetModalRegTitle);
+}; 
+
+export const genModRegRejectInfo = (input) => {
+  const tempModalRegInfo = domElement.modal.regHandlebars.infoReject;
+  const dataModalRegInfo = {
+    notification: (input.value != '' ? 'registration reject!' : 'registration reject!'),
+  };
+  const targetModalRegInfo = domElement.modal.regReject.infoText;
+  utils.addTextToTemp(tempModalRegInfo, dataModalRegInfo, targetModalRegInfo);
+};

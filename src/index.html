@@ -61,7 +61,7 @@
               <label for='inp-log-password' class='input-text-label'>password</label>
             </div>
             <div class='button-wrapper'>
-              <button class='button button-login' disabled>LOGIN</button>
+              <button class='button button-login'>LOGIN</button>
             </div>
           </form>
         </div>
@@ -69,8 +69,8 @@
 
       <section>
         <div class="overlay">
-          <div class="modal" id="registration-confirm">
-            
+
+          <div class="modal" id="registration-confirm">          
             <div>
               <div class="modal-button-x close-modal">x</div>
             </div>
@@ -93,8 +93,33 @@
             <div class="modal-button-wrapper">
               <div class="modal-button-close close-modal">Okay</div>
             </div>
-
           </div>
+
+          <div class="modal" id="registration-reject">          
+            <div>
+              <div class="modal-button-x close-modal">x</div>
+            </div>
+            
+            <div class="modal-wrapper">
+              <div class="modal-title">
+                <h2 class="modal-title-text"></h2>
+                <script id="template-modal-reg-reject-title" type="text/x-handlebars-template">
+                  {{ rejectMessage }}
+                </script>
+              </div>
+              <div class="modal-info">              
+                <h4 class="modal-info-text"></h4>
+                <script id="template-modal-reg-reject-info" type="text/x-handlebars-template">
+                  {{ notification }}
+                </script>
+              </div>
+            </div>
+
+            <div class="modal-button-wrapper">
+              <div class="modal-button-close close-modal">Okay</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
