@@ -76,12 +76,21 @@ export const genModLogRejectInfo = (input) => {
 };
 
 //USER
-export const genUserName = () => {
+export const genUserName = (name) => {
+  console.log(name.value);
   const tempUserName = domElement.user.handlebars.name;
   const dataUserName = {
-    // userName: (name != '' ? 'SIEMA' : 'error'),
-    userName: 'SIEMA',
+    userName: (name.value != '' ? name.value : 'error'),
   };
   const targetUserName = domElement.user.name;
   utils.addTextToTemp(tempUserName, dataUserName, targetUserName);
+};
+
+export const genUserEmail = (email) => {
+  const tempUserEmail = domElement.user.handlebars.email;
+  const dataUserEmail = {
+    userEmail: (email != '' ? email : 'error'),
+  };
+  const targetUserEmail = domElement.user.email;
+  utils.addTextToTemp(tempUserEmail, dataUserEmail, targetUserEmail);
 };

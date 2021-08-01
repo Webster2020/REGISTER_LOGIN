@@ -45,5 +45,12 @@ export const utils = {
       }
     }
     userWrapper.classList.add(classNames.formWrappers.active);
+  },
+  logout: () => {
+    console.log('logout');
+    const userWrapper = domElement.user.wrapper;
+    const logForm = domElement.login.wrapper;
+    userWrapper.classList.remove(classNames.formWrappers.active);
+    logForm.classList.add(classNames.formWrappers.active);
   }
 };

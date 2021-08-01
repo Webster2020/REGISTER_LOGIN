@@ -19,6 +19,8 @@ const logInpName = domElement.login.input.name;
 const logInpPassword = domElement.login.input.password;
 // LOGIN BUTTON
 const logButton = domElement.login.button;
+// LOGOUT BUTTON
+const logoutButton = domElement.user.button;
 
 // SET ACTIONS
 utils.setSwitchLogReg();
@@ -36,7 +38,8 @@ logButton.addEventListener('click', (e) => {
   getLogData(logInpName, logInpPassword);
 });
 
-// regInpName.addEventListener('input', (e) => {
-//   console.log(e.target.value);
-//   console.log(regInpName.validity.tooShort);
-// });
+//LOGOUT
+logoutButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  utils.logout();
+});

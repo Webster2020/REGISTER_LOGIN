@@ -8,7 +8,8 @@ import {
   genModLogTitle,
   genModLogRejectTitle,
   genModLogRejectInfo,
-  genUserName
+  genUserName,
+  genUserEmail
 } from './genTemp.js';
 import {select} from './settings.js';
 
@@ -109,34 +110,33 @@ export const getLogData = (name, password) => {
       })
       .then(function(parsedResponse) {
         console.log('parsedResponse', parsedResponse);
+
+        let loginConfirm = false;
+        let email = '';
+
         for(let el of parsedResponse) {
-        // parsedResponse.forEach(el => {
-          if (el.name === name.value && el.password === password.value) {
-            console.log(`Login as '${name.value}' confirm!`);
-
-            utils.openModal(select.modal.logConfirm.id);
-            genModLogTitle(name);
-            genModLogInfo(name);
-
-            genUserName();
-            utils.userShow();
-   
-            utils.inputClear(name);
-            utils.inputClear(password);
-
-            break;
-
-          } else {
-            console.log('Wrong name or password!');
-            
-            utils.openModal(select.modal.logReject.id);
-            genModLogRejectTitle(name);
-            genModLogRejectInfo(name);
-    
-            utils.inputClear(name);
-            utils.inputClear(password);
-          }
+          (el.name === name.value && el.password === password.value) && (loginConfirm = true);
+          (el.name === name.value && el.password === password.value) && (email = el.email);
         }
+
+        if (loginConfirm) {
+          utils.openModal(select.modal.logConfirm.id);
+          genModLogTitle(name);
+          genModLogInfo(name);
+          genUserName(name);
+          console.log(email);
+          genUserEmail(email);
+          utils.userShow();
+          utils.inputClear(name);
+          utils.inputClear(password);
+        } else {                
+          utils.openModal(select.modal.logReject.id);
+          genModLogRejectTitle(name);
+          genModLogRejectInfo(name);
+          utils.inputClear(name);
+          utils.inputClear(password);
+        }
+
       });
   };
 

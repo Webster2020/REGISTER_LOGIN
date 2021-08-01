@@ -113,7 +113,7 @@ export const domElement = {
     icon: document.querySelector(select.user.icon),
     name: document.querySelector(select.user.name),
     email: document.querySelector(select.user.email),
-    button: document.querySelector(select.login.button),
+    button: document.querySelector(select.user.button),
     handlebars: {
       name: document.querySelector(select.user.handlebars.name).innerHTML,
       email: document.querySelector(select.user.handlebars.email).innerHTML,
