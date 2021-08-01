@@ -19,9 +19,10 @@
   <main>
     <article>
 
-      <section class='register'>
+      <section class='register-login'>
+
         <div class='form-wrapper form-register active'>
-          <form>
+          <form class='content'>
             <div class='input-wrapper'>
               <div class="login-icon icon-right">
                 <i class="fas fa-sign-in-alt"></i>
@@ -44,7 +45,7 @@
         </div>
 
         <div class='form-wrapper form-login'>
-          <form>
+          <form class='content'>
             <div class='input-wrapper'>
               <div class="login-icon icon-left">
                 <i class="fas fa-sign-in-alt"></i>
@@ -52,10 +53,10 @@
               <input id='inp-log-name' class='input-text input-name' type='text' placeholder='name'/>
               <label for='inp-log-name' class='input-text-label'>name</label>
             </div>
-            <div class='input-wrapper'>
+            <!-- <div class='input-wrapper'>
               <input id='inp-log-email' class='input-text input-email' type='email' placeholder='e-mail'/>
               <label for='inp-log-email' class='input-text-label'>e-mail</label>
-            </div>
+            </div> -->
             <div class='input-wrapper'>
               <input id='inp-log-password' class='input-text input-password' type='password' placeholder='password'/>
               <label for='inp-log-password' class='input-text-label'>password</label>
@@ -65,9 +66,37 @@
             </div>
           </form>
         </div>
+
+        <div class='form-wrapper form-user'>
+          <form class='content'>
+            <div class='user-wrapper'>
+              <div class='user-icon'>
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class='user-name'>
+                <h2 class='user-name-text'></h2>
+                <script id="template-user-name" type="text/x-handlebars-template">
+                  {{ userName }}
+                </script>
+              </div>
+              <div class='user-email'>
+                <h4 class='user-email-text'>EMAIL</h4>
+                <script id="template-user-email" type="text/x-handlebars-template">
+                  {{ userEmail }}
+                </script>
+              </div>
+              <div class='button-wrapper'>
+                <button class='button button-logout' disabled>LOGOUT</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
       </section>
 
       <section>
+
         <div class="overlay">
 
           <div class="modal" id="registration-confirm">          
@@ -110,6 +139,31 @@
               <div class="modal-info">              
                 <h4 class="modal-info-text"></h4>
                 <script id="template-modal-reg-reject-info" type="text/x-handlebars-template">
+                  {{ rejectNotification }}
+                </script>
+              </div>
+            </div>
+
+            <div class="modal-button-wrapper">
+              <div class="modal-button-close close-modal">Okay</div>
+            </div>
+          </div>
+
+          <div class="modal" id="login-confirm">          
+            <div>
+              <div class="modal-button-x close-modal">x</div>
+            </div>
+            
+            <div class="modal-wrapper">
+              <div class="modal-title">
+                <h2 class="modal-title-text"></h2>
+                <script id="template-modal-log-title" type="text/x-handlebars-template">
+                  {{ greetingMessage }}
+                </script>
+              </div>
+              <div class="modal-info">              
+                <h4 class="modal-info-text"></h4>
+                <script id="template-modal-log-info" type="text/x-handlebars-template">
                   {{ notification }}
                 </script>
               </div>
@@ -120,7 +174,33 @@
             </div>
           </div>
 
+          <div class="modal" id="login-reject">          
+            <div>
+              <div class="modal-button-x close-modal">x</div>
+            </div>
+            
+            <div class="modal-wrapper">
+              <div class="modal-title">
+                <h2 class="modal-title-text"></h2>
+                <script id="template-modal-log-reject-title" type="text/x-handlebars-template">
+                  {{ rejectMessage }}
+                </script>
+              </div>
+              <div class="modal-info">              
+                <h4 class="modal-info-text"></h4>
+                <script id="template-modal-log-reject-info" type="text/x-handlebars-template">
+                  {{ rejectNotification }}
+                </script>
+              </div>
+            </div>
+
+            <div class="modal-button-wrapper">
+              <div class="modal-button-close close-modal">Okay</div>
+            </div>
+          </div>
+
         </div>
+
       </section>
 
     </article>

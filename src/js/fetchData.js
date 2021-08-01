@@ -1,10 +1,20 @@
 import {utils} from './utils.js';
-import {genModRegInfo, genModRegTitle, genModRegRejectTitle, genModRegRejectInfo} from './genTemp.js';
+import {
+  genModRegInfo, 
+  genModRegTitle, 
+  genModRegRejectTitle, 
+  genModRegRejectInfo,
+  genModLogInfo,
+  genModLogTitle,
+  genModLogRejectTitle,
+  genModLogRejectInfo,
+  genUserName
+} from './genTemp.js';
 import {select} from './settings.js';
 
 export const postRegData = (name, email, password) => {
   const regUrl = '//localhost:3131/users';
-  let userExist = 0;
+  let duplicatedUsers = 0;
 
   const checkData = () => {
     fetch(regUrl) 
@@ -13,11 +23,11 @@ export const postRegData = (name, email, password) => {
       })
       .then(function(parsedResponse) {
         parsedResponse.forEach(el => {
-          el.name === name.value && userExist++;
+          el.name === name.value && duplicatedUsers++;
         });
       })
       .then(function() {
-        if (userExist < 1) {
+        if (duplicatedUsers < 1) {
           const regPayload = {
             name: name.value,
             email: email.value,
@@ -90,9 +100,6 @@ export const postRegData = (name, email, password) => {
 
 // IN PROGRESS...
 export const getLogData = (name, password) => {
-  console.log(name.value);
-  console.log(password.value);
-
   const logUrl = '//localhost:3131/users';
 
   const getData = () => {
@@ -102,17 +109,39 @@ export const getLogData = (name, password) => {
       })
       .then(function(parsedResponse) {
         console.log('parsedResponse', parsedResponse);
-        parsedResponse.forEach(el => {
-          console.log(el);
-          el.name === name.value && el.password === password.value ? console.log('Login confirm!') : console.log('Wrong name or password!');
-        });
-      })
-      .then(function() {
-        utils.inputClear(name);
-        utils.inputClear(password);
+        for(let el of parsedResponse) {
+        // parsedResponse.forEach(el => {
+          if (el.name === name.value && el.password === password.value) {
+            console.log(`Login as '${name.value}' confirm!`);
+
+            utils.openModal(select.modal.logConfirm.id);
+            genModLogTitle(name);
+            genModLogInfo(name);
+
+            genUserName();
+            utils.userShow();
+   
+            utils.inputClear(name);
+            utils.inputClear(password);
+
+            break;
+
+          } else {
+            console.log('Wrong name or password!');
+            
+            utils.openModal(select.modal.logReject.id);
+            genModLogRejectTitle(name);
+            genModLogRejectInfo(name);
+    
+            utils.inputClear(name);
+            utils.inputClear(password);
+          }
+        }
       });
   };
+
   getData();
+
 };
 
 

@@ -1,0 +1,32 @@
+.user-wrapper {
+  position: relative;
+  display: block;
+  margin: 10px auto;
+  width: 90%;
+  text-align: center;
+  transition: 0.5s;
+  //border: 5px solid black;
+}
+
+.user-icon {
+  font-size: 120px;
+}
+
+.user-name {
+  .user-name-text {
+    margin: 0;
+    font-size: 40px;
+  }
+}
+
+.user-email {
+  .user-email-text {
+    margin: 0;
+  }
+}
+
+
+.active {
+  display: block;
+  transition: 0.5s;
+}

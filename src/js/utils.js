@@ -14,7 +14,10 @@ export const utils = {
     document.querySelector(modalId).classList.add(classNames.modal.show);
   },
   addTextToTemp: (tempDomElem, content, targetDomElem) => {
+    console.log('addTextToTemp');
+    console.log(tempDomElem);
     const tempContentSetter = Handlebars.compile(tempDomElem);
+    console.log(content);
     const generatedHTML = tempContentSetter(content);
     targetDomElem.innerHTML = generatedHTML;
   },
@@ -33,4 +36,14 @@ export const utils = {
       });
     }
   },
+  userShow: () => {
+    const formWrapperAll = domElement.formWrapperAll;
+    const userWrapper = domElement.user.wrapper;
+    for(const formWrapper of formWrapperAll) {
+      if(formWrapper.classList.contains(classNames.formWrappers.active)) {
+        formWrapper.classList.remove(classNames.formWrappers.active);
+      }
+    }
+    userWrapper.classList.add(classNames.formWrappers.active);
+  }
 };
