@@ -77,7 +77,6 @@ export const genModLogRejectInfo = (input) => {
 
 //USER
 export const genUserName = (name) => {
-  console.log(name.value);
   const tempUserName = domElement.user.handlebars.name;
   const dataUserName = {
     userName: (name.value != '' ? name.value : 'error'),

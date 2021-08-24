@@ -14,3 +14,6 @@ https://webster2020.github.io/REGISTER_LOGIN/
 3. npm run watch - run the project and than You can see it on Your device
 
 *...or use link if You only want to check how it works
+
+# TODO:
+- RWD for current app version !! 22.08.2021

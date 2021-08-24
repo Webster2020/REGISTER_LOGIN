@@ -103,7 +103,6 @@ export const domElement = {
     wrapper: document.querySelector(select.login.wrapper),
     input: {
       name: document.querySelector(select.login.input.name),
-      //email: document.querySelector(select.login.input.email),
       password: document.querySelector(select.login.input.password),
     },
     button: document.querySelector(select.login.button),

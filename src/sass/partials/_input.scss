@@ -4,10 +4,13 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  margin: auto;
   top: calc(50vh - 150px);
-  left: calc(50vw - 200px);
+  left: 0;
+  right: 0;
   height: 300px;
   width: 400px;
+  min-width: 0px;
   border-radius: 20px;
   opacity: 0.7;
   transition: 0.5s;
@@ -113,4 +116,46 @@
 .active {
   display: block;
   transition: 0.5s;
+}
+
+//MEDIA 
+@media (max-width: 576px) {
+  .content {
+    top: calc(50vh - 150px);
+    height: 300px;
+    width: 300px;
+    .icon-right {
+      bottom: -105px;
+      left: 280px;
+    }
+    .icon-left {
+      bottom: -80px;
+      transform: rotate(180deg);
+      right: 280px;
+    }
+  }
+}
+
+//MEDIA 
+@media (max-width: 490px) {
+  .content {
+    top: calc(50vh - 150px);
+    height: 300px;
+    width: 200px;
+    .icon-right {
+      bottom: -105px;
+      left: 170px;
+      transform: scale(0.7);
+    }
+    .icon-left {
+      bottom: -80px;
+      transform: rotate(180deg) scale(0.7);
+      right: 170px;
+    }
+    .input-wrapper {
+      .input-text {
+        font-size: 14px;
+      }
+    }
+  }
 }

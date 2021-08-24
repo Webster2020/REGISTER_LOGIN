@@ -14,10 +14,7 @@ export const utils = {
     document.querySelector(modalId).classList.add(classNames.modal.show);
   },
   addTextToTemp: (tempDomElem, content, targetDomElem) => {
-    console.log('addTextToTemp');
-    console.log(tempDomElem);
     const tempContentSetter = Handlebars.compile(tempDomElem);
-    console.log(content);
     const generatedHTML = tempContentSetter(content);
     targetDomElem.innerHTML = generatedHTML;
   },
@@ -47,7 +44,6 @@ export const utils = {
     userWrapper.classList.add(classNames.formWrappers.active);
   },
   logout: () => {
-    console.log('logout');
     const userWrapper = domElement.user.wrapper;
     const logForm = domElement.login.wrapper;
     userWrapper.classList.remove(classNames.formWrappers.active);
