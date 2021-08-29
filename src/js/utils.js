@@ -1,6 +1,7 @@
 'use strict';
 
 import {classNames, domElement} from './settings.js';
+import {genAsideBarUsers} from './genTemp.js';
 
 export const utils = {
   closeModal: () => {
@@ -17,6 +18,11 @@ export const utils = {
     const tempContentSetter = Handlebars.compile(tempDomElem);
     const generatedHTML = tempContentSetter(content);
     targetDomElem.innerHTML = generatedHTML;
+  },
+  addListElemToTemp: (tempDomElem, content, targetDomElem) => {
+    const tempContentSetter = Handlebars.compile(tempDomElem);
+    const generatedHTML = tempContentSetter(content);
+    targetDomElem.insertAdjacentHTML('beforeend', generatedHTML);
   },
   inputClear: (input) => {
     input.value = '';
@@ -48,5 +54,6 @@ export const utils = {
     const logForm = domElement.login.wrapper;
     userWrapper.classList.remove(classNames.formWrappers.active);
     logForm.classList.add(classNames.formWrappers.active);
+    domElement.users.wrapper.innerHTML = '';
   }
 };

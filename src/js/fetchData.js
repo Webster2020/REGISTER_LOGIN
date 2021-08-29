@@ -9,9 +9,11 @@ import {
   genModLogRejectTitle,
   genModLogRejectInfo,
   genUserName,
-  genUserEmail
+  genUserEmail,
+  genAsideBarUsers
 } from './genTemp.js';
 import {select} from './settings.js';
+
 
 export const postRegData = (name, email, password) => {
   const regUrl = '//localhost:3131/users';
@@ -73,7 +75,7 @@ export const postRegData = (name, email, password) => {
 
 };
 
-// IN PROGRESS...
+
 export const getLogData = (name, password) => {
   const logUrl = '//localhost:3131/users';
 
@@ -87,12 +89,24 @@ export const getLogData = (name, password) => {
         let loginConfirm = false;
         let email = '';
 
+        //new 29.08.2021
+        const users = [];
+
         for(let el of parsedResponse) {
           (el.name === name.value && el.password === password.value) && (loginConfirm = true);
           (el.name === name.value && el.password === password.value) && (email = el.email);
         }
 
         if (loginConfirm) {
+
+          for(let el of parsedResponse) {
+            if(el.name !== name.value) {
+              users.push({
+                name: el.name,
+                email: el.email
+              });
+            }
+          }
 
           utils.openModal(select.modal.logConfirm.id);
           genModLogTitle(name);
@@ -102,7 +116,10 @@ export const getLogData = (name, password) => {
           utils.userShow();
           utils.inputClear(name);
           utils.inputClear(password);
+          genAsideBarUsers(users);
 
+          users.length = 0;
+          
         } else {    
 
           utils.openModal(select.modal.logReject.id);

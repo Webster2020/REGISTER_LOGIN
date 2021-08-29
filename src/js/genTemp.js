@@ -93,3 +93,16 @@ export const genUserEmail = (email) => {
   const targetUserEmail = domElement.user.email;
   utils.addTextToTemp(tempUserEmail, dataUserEmail, targetUserEmail);
 };
+
+//ASIDE-BAR //new 24.08.2021
+export const genAsideBarUsers = (users) => {
+  console.log(users);
+  const tempUsers = domElement.users.handlebars.innerHTML;
+  const dataUsers = {
+    person: [
+      ...users
+    ]
+  };
+  const targetUsers = domElement.users.wrapper;
+  utils.addListElemToTemp(tempUsers, dataUsers, targetUsers);
+};

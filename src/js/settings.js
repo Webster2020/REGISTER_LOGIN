@@ -18,7 +18,6 @@ export const select = {
     input: {
       wrapper: '.form-login .input-wrapper',
       name: '.form-login .input-name',
-      //email: '.form-login .input-email',
       password: '.form-login .input-password',
     },
     button: '.button-login',
@@ -33,6 +32,13 @@ export const select = {
       name: '#template-user-name',
       email: '#template-user-email',
     }
+  },
+  users: {
+    wrapper: '.users-list',
+    button: ' .users-list .single-user-button',
+    name: '.users-list .single-user-name',
+    email: '.users-list .single-user-email',
+    handlebars: '#template-aside-bar',
   },
   overlay: '.overlay',
   modalsAll: '.overlay > *',
@@ -118,6 +124,15 @@ export const domElement = {
       email: document.querySelector(select.user.handlebars.email).innerHTML,
     }
   },
+  //new 24.08.2021
+  users: {
+    wrapper: document.querySelector(select.users.wrapper),
+    button: document.querySelector(select.users.button),
+    name: document.querySelector(select.users.name),
+    email: document.querySelector(select.users.email),
+    handlebars: document.querySelector(select.users.handlebars),
+  },
+  //------
   overlay: document.querySelector(select.overlay),
   modal: {
     closeButtons: document.querySelectorAll(select.modal.closeButtons),
