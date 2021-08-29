@@ -16,5 +16,5 @@ main {
 .form-wrapper {
   position: relative;
   display: none;
-  transition: 0.5s;
+  transition: $transition-mid;
 }

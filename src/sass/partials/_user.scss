@@ -1,30 +1,30 @@
 .user-wrapper {
   position: relative;
   display: block;
-  margin: 10px auto;
+  margin: $base-size auto;
   width: 90%;
   text-align: center;
-  transition: 0.5s;
+  transition: $transition-mid;
 }
 
 .user-icon {
-  font-size: 120px;
+  font-size: $base-size * 12;
 }
 
 .user-name {
   .user-name-text {
     margin: 0;
-    font-size: 40px;
+    font-size: $base-size * 4;
   }
 }
 
 .user-email {
   .user-email-text {
-    margin: 0 0 20px;
+    margin: 0 0 $base-size * 2;
   }
 }
 
 .active {
   display: block;
-  transition: 0.5s;
+  transition: $transition-mid;
 }

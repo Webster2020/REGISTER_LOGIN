@@ -13,19 +13,19 @@
   min-width: 0px;
   border-radius: 20px;
   opacity: 0.7;
-  transition: 0.5s;
+  transition: $transition-mid;
   &:hover {
     opacity: 1;
-    transition: 0.5s;
+    transition: $transition-mid;
     .login-icon {
       opacity: 1;
       cursor: pointer;
-      transition: 0.5s;
+      transition: $transition-mid;
       &:hover {
         margin: 0 3px;
         border-radius: 10px;
-        box-shadow: 0 2px 15px 2px black;
-        transition: 0.2s;
+        box-shadow: 0 2px 15px 2px $color-black;
+        transition: $transition-fast;
       }
     }
   }
@@ -34,11 +34,11 @@
     border-radius: 10px;
     border: 3px solid transparent;
     opacity: 0;
-    transition: 0.5s;
+    transition: $transition-mid;
     i {
-      margin: 10px;
-      color: white;
-      font-size: 40px;
+      margin: $base-size;
+      color: $color-white;
+      font-size: $base-size * 4;
     }
   }
   .icon-right {
@@ -53,33 +53,33 @@
   .input-wrapper {
     position: relative;
     display: block;
-    margin: 10px auto;
+    margin: $base-size auto;
     height: 35px;
     width: 90%;
-    transition: 0.5s;
+    transition: $transition-mid;
     &:focus-within {
       height: 82px;
       border-radius: 10px;
-      box-shadow: 0 2px 15px 2px black;
-      transition: 0.5s;
+      box-shadow: 0 2px 15px 2px $color-black;
+      transition: $transition-mid;
     }
     .input-text {
       position: relative;
       display: block;
-      margin: 10px auto;
-      padding: 5px 0;
+      margin: $base-size auto;
+      padding: $base-size * 0.5 0;
       width: 95%;
       top: 0;
-      font-size: 16px;
+      font-size: $base-size * 1.6;
       font-family: $main-font;
       text-align: center;
-      transition: 0.5s;
+      transition: $transition-mid;
     }
     .input-text-label {
       position: relative;
       display: block;
-      margin: 5px auto;
-      padding: 5px 0;
+      margin: $base-size * 0.5 auto;
+      padding: $base-size * 0.5 0;
       height: 30px;
       width: 95%;
       top: -30px;
@@ -88,7 +88,7 @@
       border-radius: 0 0 7px 7px;
       background-color: $color-white;
       opacity: 0;
-      transition: 0.5s;
+      transition: $transition-mid;
     }
     .input-text:focus {
       outline: none;
@@ -98,16 +98,16 @@
       border-right: 2px solid dodgerblue;
       &::placeholder {
         color: transparent;
-        transition: 0.5s;
+        transition: $transition-mid;
       }
       ~ label {
         top: -8px;
-        color: gray;
+        color: $color-main-two;
         border-bottom: 2px solid dodgerblue;
         border-left: 2px solid dodgerblue;
         border-right: 2px solid dodgerblue;
         opacity: 1;
-        transition: 0.5s;
+        transition: $transition-mid;
       }
     }
   }
@@ -115,7 +115,7 @@
 
 .active {
   display: block;
-  transition: 0.5s;
+  transition: $transition-mid;
 }
 
 //MEDIA 
@@ -153,7 +153,7 @@
     }
     .input-wrapper {
       .input-text {
-        font-size: 14px;
+        font-size: $base-size * 1.4;
       }
     }
   }
