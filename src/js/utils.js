@@ -1,7 +1,6 @@
 'use strict';
 
-import {classNames, domElement} from './settings.js';
-import {genAsideBarUsers} from './genTemp.js';
+import {select, classNames, domElement} from './settings.js';
 
 export const utils = {
   closeModal: () => {
@@ -55,5 +54,14 @@ export const utils = {
     userWrapper.classList.remove(classNames.formWrappers.active);
     logForm.classList.add(classNames.formWrappers.active);
     domElement.users.wrapper.innerHTML = '';
+  },
+  getAsideBarUsersDom: () => {
+    const sendMsgButtons = document.querySelectorAll(select.users.buttons);
+    sendMsgButtons.forEach(button => {
+      button.addEventListener('click', e => {
+        e.preventDefault();
+        console.log(`Sending message ... `);
+      })
+    })
   }
 };

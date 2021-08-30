@@ -89,7 +89,6 @@ export const getLogData = (name, password) => {
         let loginConfirm = false;
         let email = '';
 
-        //new 29.08.2021
         const users = [];
 
         for(let el of parsedResponse) {
@@ -117,6 +116,8 @@ export const getLogData = (name, password) => {
           utils.inputClear(name);
           utils.inputClear(password);
           genAsideBarUsers(users);
+          //TO DO 31.08.2021
+          utils.getAsideBarUsersDom();
 
           users.length = 0;
           

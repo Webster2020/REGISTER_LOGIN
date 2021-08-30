@@ -27,19 +27,19 @@ utils.setSwitchLogReg();
 setCloseModalWays();
 
 // REGISTRATION
-regButton.addEventListener('click', (e) => {
+regButton.addEventListener('click', e => {
   e.preventDefault();
   postRegData(regInpName, regInpEmail, regInpPassword);
 });
 
 // LOGIN
-logButton.addEventListener('click', (e) => {
+logButton.addEventListener('click', e => {
   e.preventDefault();
   getLogData(logInpName, logInpPassword);
 });
 
 //LOGOUT
-logoutButton.addEventListener('click', (e) => {
+logoutButton.addEventListener('click', e => {
   e.preventDefault();
   utils.logout();
 });

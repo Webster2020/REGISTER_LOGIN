@@ -35,9 +35,9 @@ export const select = {
   },
   users: {
     wrapper: '.users-list',
-    button: ' .users-list .single-user-button',
-    name: '.users-list .single-user-name',
-    email: '.users-list .single-user-email',
+    buttons: ' .users-list .msg-button',
+    names: '.users-list .single-user-name',
+    emails: '.users-list .single-user-email',
     handlebars: '#template-aside-bar',
   },
   overlay: '.overlay',
@@ -124,15 +124,13 @@ export const domElement = {
       email: document.querySelector(select.user.handlebars.email).innerHTML,
     }
   },
-  //new 24.08.2021
   users: {
     wrapper: document.querySelector(select.users.wrapper),
-    button: document.querySelector(select.users.button),
-    name: document.querySelector(select.users.name),
-    email: document.querySelector(select.users.email),
+    buttons: document.querySelectorAll(select.users.buttons),
+    names: document.querySelectorAll(select.users.names),
+    emails: document.querySelectorAll(select.users.emails),
     handlebars: document.querySelector(select.users.handlebars),
   },
-  //------
   overlay: document.querySelector(select.overlay),
   modal: {
     closeButtons: document.querySelectorAll(select.modal.closeButtons),
