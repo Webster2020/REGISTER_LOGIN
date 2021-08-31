@@ -6,7 +6,7 @@ REGISTER / LOGIN is simple aplication to creating requests and responses to API 
 ![](REGISTER_LOGIN.gif)
 
 ## Link
-https://webster2020.github.io/REGISTER_LOGIN/
+https://webster2020-register-login.herokuapp.com/
 
 ## Getting Started
 1. git clone git@github.com:Webster2020/REGISTER_LOGIN.git

@@ -14,13 +14,14 @@ import {
 } from './genTemp.js';
 import {select} from './settings.js';
 
+const url = '//' + window.location.hostname + (window.location.hostname=='localhost' ? ':3131/users' : '/users');
 
 export const postRegData = (name, email, password) => {
-  const regUrl = '//localhost:3131/users';
+  //const regUrl = '//localhost:3131/users';
   let duplicatedUsers = 0;
 
   const checkData = () => {
-    fetch(regUrl) 
+    fetch(url) 
       .then(function(response) {
         return response.json();
       })
@@ -45,7 +46,7 @@ export const postRegData = (name, email, password) => {
             body: JSON.stringify(regPayload),
           };
           const fetchInputData = (name, email, password) => {
-            fetch(regUrl, regOption)
+            fetch(url, regOption)
               .then(function(response){
                 return response.json();
               })
@@ -77,10 +78,10 @@ export const postRegData = (name, email, password) => {
 
 
 export const getLogData = (name, password) => {
-  const logUrl = '//localhost:3131/users';
+  //const logUrl = '//localhost:3131/users';
 
   const getData = () => {
-    fetch(logUrl) 
+    fetch(url) 
       .then(function(response) {
         return response.json();
       })
