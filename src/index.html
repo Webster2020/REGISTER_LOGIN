@@ -219,7 +219,7 @@
             {{#each person}}
               <li id="{{ @key }}" class='user'><i class="fas fa-user"></i>&nbsp;&nbsp;{{name}}
                 <ul class='user-data'>
-                  <li class='single-user-button'><button class='msg-button'><i class="far fa-envelope"></i></button></li>
+                  <li class='single-user-button'><button data-id={{name}} class='msg-button'><i class="far fa-envelope"></i></button></li>
                   <li class='single-user-name'>{{name}}</li>
                   <li class='single-user-email'>{{email}}</li>
                 </ul>

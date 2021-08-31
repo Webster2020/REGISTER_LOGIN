@@ -24,6 +24,7 @@ export const utils = {
     targetDomElem.insertAdjacentHTML('beforeend', generatedHTML);
   },
   inputClear: (input) => {
+    console.log('???');
     input.value = '';
   },
   setSwitchLogReg: () => {
@@ -58,10 +59,11 @@ export const utils = {
   getAsideBarUsersDom: () => {
     const sendMsgButtons = document.querySelectorAll(select.users.buttons);
     sendMsgButtons.forEach(button => {
+      const buttonId = button.getAttribute('data-id');
       button.addEventListener('click', e => {
         e.preventDefault();
-        console.log(`Sending message ... `);
-      })
-    })
+        alert(`Sending message to ${buttonId} ... (in progress)`);
+      });
+    });
   }
 };
