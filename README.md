@@ -31,15 +31,18 @@ https://webster2020-register-login.herokuapp.com/
   - when data are correct it show modal with registration confirm
   - every new users data go to app.json file (database)
   - after registration every form elements are clearing
+  - 
   ** LOGIN: **
   - form with name and password
   - when user try to input name which is not in the database it shows modal with login reject 
   - when data are correct it show modal with login confirm
   - after login every form elements are clearing
   - in aside bar is genereted list of every registred users (without current logged user)
+  - 
   ** LOGOUT: **
   - button to logout user
   - after logout app goes back to default state
+  - 
   ** USERS BAR: **
   - it is genereted thanks to Handlebars templates every time when user logs in
   - it contains names and emails every registred users
